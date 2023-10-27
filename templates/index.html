@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: 'Oswald', sans-serif;
+background-image: url("https://cdn2.slidemodel.com/wp-content/uploads/7243-01-low-poly-background-16x9-1.jpg");
+        }
+        .jumbotron {
+    background-color:transparent !important;
+}
+        .wrapper {
+    text-align: center;
+}
+        #removeit{
+        float: right;
+        }
+        .did{
+ text-align: center;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+<div class="jumbotron">
+
+  <h1 class="display-4"><b>EECP PATEINT DATA
+COLLECTION </b></h1>
+  <p class="lead">EECP STANDS FOR EXTERNAL COUNTER PULSATION.</p>
+    <a class="btn btn-primary btn-lg" id="removeit" href="/logout">Log Out</a>
+    <div class="did"> <b >DATE:</b> {% now "jS \o\f F" %}</div>
+
+
+  <hr class="my-4">
+  <p>Here, (EECP) is currently applied for treating coronary artery disease (CAD) patients</p>
+    <div class="wrapper">
+<!--        <p class="lead">-->
+    <a class="btn btn-danger btn-lg mx-4"  href="newp" role="button">NEW PATIENT</a>
+      <a class="btn btn-warning btn-lg mx-4" href="exip" role="button">EXISTING PATIENT</a>
+<!--  </p>-->
+    </div>
+
+</div>
+
+
+</body>
+</html>

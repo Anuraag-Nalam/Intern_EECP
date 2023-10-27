@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: 'Oswald', sans-serif;
+background-image: url("https://cdn2.slidemodel.com/wp-content/uploads/7243-01-low-poly-background-16x9-1.jpg");
+        }
+        .jumbotron {
+    background-color:transparent !important;
+}
+    #removeit{
+        float: right;
+        }
+        .did{
+ text-align: center;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+<div class="jumbotron">
+
+  <h1 class="display-4"><b>EECP PATIEINT DATA
+COLLECTION </b></h1>
+  <p class="lead">EECP STANDS FOR EXTERNAL COUNTER PULSATION.</p>
+  <a class="btn btn-warning btn-lg mx-4" id="removeit" href="/exip">BACK</a>
+    <a class="btn btn-primary btn-lg" id="removeit" href="/logout">Log Out</a>
+    <div class="did"> <b >DATE:</b> {% now "jS \o\f F" %}</div>
+
+
+  <hr class="my-4">
+  <p>Here, (EECP) is currently applied for treating coronary artery disease (CAD) patients</p>
+   <!--  <div class="wrapper">
+    <a class="btn btn-danger btn-lg mx-4"  href="#" role="button">MACHINE1</a>
+      <a class="btn btn-warning btn-lg mx-4" href="#" role="button">MACHINE 2</a>
+        <a class="btn btn-dark btn-lg mx-4" href="#" role="button">MACHINE 3</a>
+    </div> -->
+
+</div>
+<div class="container">
+<form method="post" action="/live">
+    {%csrf_token%}
+    
+      <h5><label for="birthday">Select the date</label><h5></label>
+        <input type="date" id="birthday" name="date">
+    <div class="form-group">
+    <label for="exampleFormControlInput6">MACHINE_ID:</label>
+    <input type="tel" name="machineid" class="form-control" id="exampleFormControlInput6" placeholder="Machine_id" >
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput5">PATIENT_ID:</label>
+    <input type="tel" name="patientid" class="form-control" id="exampleFormControlInput5" placeholder="Patient_id" >
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput2">AVERAGE ECG</label>
+    <input type="tel" name="averageecg" class="form-control" id="exampleFormControlInput2" placeholder="Enter average ECG value" >
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput7">AVERAGE SO2</label>
+    <input type="tel" name="averageso" class="form-control" id="exampleFormControlInput7" maxlength="10" placeholder="Enter average so2 value">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1" >AVERAGE PEAK RATIO</label>
+    <input type="tel" class="form-control" name="averagepeakratio" id="exampleFormControlInput1" maxlength = "12" placeholder="Enter average peak ratio" >
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlInput3">AVERAGE AREA RATIO</label>
+    <input type="tel" name="averagearearatio" class="form-control" id="exampleFormControlInput3" maxlength=3 max =200 placeholder="Enter average area ratio">
+  </div>
+
+    <div class="form-group">
+    <label for="exampleFormControlInput4" >PRESSURE</label>
+    <input type="tel" class="form-control" name="pressure" id="exampleFormControlInput4" maxlength = "4" placeholder="Enter pressure value">
+ </div>
+<!--    <button onclick="myFunction()" type="submit" class="btn btn-success my-3">Submit</button>-->
+        <button type="submit" class="btn btn-success my-3">Submit</button>
+
+</form>
+</div>
+</body>
+</html>

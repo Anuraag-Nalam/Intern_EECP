@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: 'Oswald', sans-serif;
+             background-image: url("https://cdn2.slidemodel.com/wp-content/uploads/7243-01-low-poly-background-16x9-1.jpg");
+        }
+        .jumbotron {
+    background-color:transparent !important;
+}
+        .wrapper {
+    text-align: center;
+}
+        #removeit{
+        float: right;
+        }
+        .did{
+ text-align: center;
+        }
+
+h3{
+  border: 10px solid transparent;
+}
+
+
+
+    </style>
+
+</head>
+<body>
+
+<div class="container my-3">
+<form method="post" action="/after"  enctype="multipart/form-data">
+    {%csrf_token%}
+    <!-- <h3 my-3>Date</h3> -->
+     <!-- <h4>DATE: {% now "jS \o\f F" %}</h4>  -->
+     <a class="btn btn-primary btn-lg" id="removeit" href="/exip">BACK</a>
+     <h5><label for="birthday">Select the date</label><h5></label>
+      <input type="date" id="birthday" name="date">
+   <div class="form-row my-3">
+
+    <div class="col">
+
+      <h5>PATIENT:ID</h5>
+      <input type="tel" class="form-control"  name="patientid" min="0" max="300" maxlength="20" placeholder="patient_id" >
+    </div>
+  </div>
+
+  <h5 class="someone my-3">BLOOD PRESSURE</h5>
+<!--  <form>-->
+
+<!-- #viceralfat -->
+<div class="form-row">
+    <div class="col">
+      <input type="tel" class="form-control"  name="bpsys" min="0" max="300" maxlength="5" placeholder="BP-SYS" >
+    </div>
+    <div class="col">
+      <input type="text" class="form-control"  name="bpdia" min="0" max="300" maxlength="5" placeholder="BP-DIA" >
+    </div>
+  </div>
+  <div class="form-group my-3">
+    <label for="exampleFormControlInput6" >Pulse</label>
+    <input type="tel" class="form-control" name="pulse" id="exampleFormControlInput6" min="0" maxlength = "5" placeholder="Pulse Value" >
+  </div>
+  <h3>BODY COMPOSITION</h3>
+ <div class="form-row my-3">
+
+    <div class="col">
+
+      <h5>VISCERAL FAT LEVEL</h5>
+      <input type="tel" class="form-control"  name="visceralfatlevel" min="0" max="300" maxlength="5" placeholder="VFL" >
+    </div>
+    <div class="col">
+      <h5>RESTING METABOLISM</h5>
+      <input type="text" class="form-control"  name="restingmetabolism" min="0" max="300" maxlength="5" placeholder="RESTING METABOLISM" >
+    </div>
+  </div>
+
+<!-- bmi and body mass percentage -->
+<div class="form-row my-3">
+  
+    <div class="col">
+      <h5>BODY MASS INDEX</h5>
+      <input type="text" class="form-control"  min="0" max="300" maxlength="5" name="bmi" placeholder="BMI" >
+    </div>
+
+    <div class="col">
+      <h5>BODY FAT PERCENTAGE</h5>
+      <input type="tel" class="form-control"  name="bfp" min="0" max="300" maxlength="5" placeholder="BODY FAT PERCENTAGE" >
+    </div>
+  </div>
+
+<!--  <form>-->
+  <div class="row">
+    <div class="col my-3">
+      <h5>SKELETAL MASS PERCENTAGE</h5>
+      <input type="text" class="form-control" name="skeletalmusclepercentage"  min="0" max="300" maxlength="4" placeholder="Skeletal Mass Percentage" >
+    </div>
+    <div class="col my-3">
+      <h5>Weight/Body</h5>
+      <input type="text" class="form-control" name="weight"  min="0" max="300" maxlength="4" placeholder="WEIGHT" >
+    </div>
+  </div>
+<!--</form>-->
+
+<!--</form>-->
+    <div class="form-group">
+    <label for="exampleFormControlInput7">BODY TEMPERATURE</label>
+    <input type="tel" name="bodytemperature" class="form-control" id="exampleFormControlInput7" min="0" max="300" maxlength="4" placeholder="Deg C" >
+  </div>
+
+ <!--  <div class="form-group">
+    <label for="exampleFormControlInput70">Skeletal Muscle Percentage</label>
+    <input type="tel"  class="form-control" id="exampleFormControlInput70" min="0" max="300" maxlength="4" placeholder="Skeletal Muscle Percentage">
+  </div> -->
+  
+<h3 class="random my-3">THERMAL IMAGE UPLOAD</h3>
+  <div class="form-group">
+    <label for="exampleFormControlInput4" >Room humidity</label>
+    <input type="tel" class="form-control" name="roomhumidity" id="exampleFormControlInput4" min="0" maxlength = "5" placeholder="Enter the current room's humidity" >
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1" >Room temperature</label>
+    <input type="tel" class="form-control" name="roomtemperature" id="exampleFormControlInput1" min="0" maxlength = "5" placeholder="Enter current room temperature" >
+  </div>
+<!--  <form>-->
+    <table>
+      <tr><td>
+    <h4>Foot(bottom)</h4>
+  <input type="file" id="footbottom my-3" name="footbottom" ></td>
+<td>
+  <h4>Foot(top)</h4>
+  <input type="file" id="foottop" name="foottop" ></td>
+  <td>
+  <h4>Legs</h4>
+  <input type="file" id="legs" name="legs" ></td></tr>
+  <tr><td>
+  <h4>Hands(Front)</h4>
+  <input type="file" id="handsfront" name="handsfront" ></td>
+  <td>
+  <h4>Hands(back)</h4>
+  <input type="file" id="handsback" name="handsback" ></td></tr>
+  </table>
+<!--</form>-->
+<h3>RETINAL IMAGE UPLOAD</h3>
+<!--  <form>-->
+    <table>
+      <tr>
+        <td>
+    <p>LEFT EYE</p>
+  <input type="file" id="lefteye" name="lefteye" ></td>
+  <td>
+  <p>RIGHT EYE</p>
+  <input type="file" id="righteye" name="righteye" ></td></tr>
+</table>
+<!--</form>-->
+
+
+  <!-- <div class="form-group">
+    <label for="exampleFormControlInput1" >Weight/Body</label>
+    <input type="tel" class="form-control" name="weight" id="exampleFormControlInput" min="0" maxlength = "5" placeholder="Weight">
+  </div> -->
+
+    <button type="submit" class="btn btn-success my-3">Submit</button>
+</form>
+</div>
+
+<!--<script type="text/javascript">-->
+<!--  function myFunction(){-->
+<!--    alert("Your details have been submitted")-->
+<!--  }-->
+
+
+<!--</script>-->
+
+</body>
+</html>

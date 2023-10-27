@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: 'Oswald', sans-serif;
+
+background-image: url("https://cdn2.slidemodel.com/wp-content/uploads/7243-01-low-poly-background-16x9-1.jpg");
+
+        }
+        .jumbotron {
+    background-color:transparent !important;
+}
+        .wrapper {
+    text-align: center;
+}
+        #removeit{
+        float: right;
+        }
+        .did{
+ text-align: center;
+        }
+
+
+
+
+    </style>
+
+</head>
+<body>
+
+<div class="jumbotron">
+
+  <h1 class="display-4"><b>EECP PATEINT DATA
+COLLECTION </b></h1>
+  <p class="lead">EECP STANDS FOR EXTERNAL COUNTER PULSATION.</p>
+  <a class="btn btn-primary btn-lg mx-4" id="removeit" href="/exip">Back</a>
+    <a class="btn btn-primary btn-lg" id="removeit" href="/logout">Log Out</a>
+    <div class="did"> <b>DATE:</b> {% now "jS \o\f F" %}</div>
+
+
+  <hr class="my-4">
+  <p>Here, (EECP) is currently applied for treating coronary artery disease (CAD) patients</p>
+
+</div>
+<div class="container">
+  <h1>EECP EMR & Data Collection Tool</h1>
+<form method="post" action="/newp">
+    {%csrf_token%}
+    <h5><label for="birthday">Select the date</label><h5></label>
+      <input type="date" id="birthday" name="date">
+    <div class="form-group">
+    <label for="exampleFormControlInput2">Name</label>
+    <input type="text" name="name" class="form-control" id="exampleFormControlInput2" placeholder="Enter Your Name" >
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput7">Age</label>
+    <input type="tel" name="age" class="form-control" id="exampleFormControlInput7" min="0" max = "100" maxlength="3" placeholder="Enter Your Age" >
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1" >Contact Number</label>
+    <input type="tel" class="form-control" name="phone" id="exampleFormControlInput1" min="0" maxlength = "12" placeholder="Enter your 10 digit phone number" >
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1000">Select Your Gender</label>
+    <select class="form-control" id="exampleFormControlSelect1000" name="gender" >
+      <option>M</option>
+      <option>F</option>
+      <option>Trans</option>
+
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlInput3">Enter Your Height</label>
+    <input type="tel" autocomplete="on" name="height" class="form-control" id="exampleFormControlInput3" maxlength=3 max =200 placeholder="Enter Your Height in cm" >
+  </div>
+   <!--  <div class="form-group my-3">
+    <label for="exampleFormControlInput4">Enter Your Weight</label>
+    <input type="number" name="weight" class="form-control" id="exampleFormControlInput4" max="400" maxlength = "3" placeholder="Enter your weight in kgs"/></div> -->
+
+    <div class="form-group">
+    <label for="exampleFormControlInput4" >Enter Your Weight</label>
+    <input type="tel" class="form-control" name="weight" id="exampleFormControlInput4" maxlength = "4" placeholder="Enter your weight in kgs" >
+  </div>
+
+
+
+
+
+
+
+
+  
+    <div class="form-group">
+    <label for="exampleFormControlTextarea6">Address</label>
+    <textarea class="form-control" name="address" id="exampleFormControlTextarea6" rows="3" ></textarea>
+  </div>
+    <div class="form-group">
+    <label for="exampleFormControlInput5">Diagnosis</label>
+    <input type="text" name="diagnosis" class="form-control" id="exampleFormControlInput5" >
+  </div>
+  <h3>MEDICAL HISTORY</h3>
+  <h3> If Yes, Enter in The text box or else type "NO".</h3>
+  <div class="form-group">
+    <label for="exampleFormControlInput51">1) Did you experience any heart related problems such as Angina Pectoris(Chest Pain)/Heart failure(shortness of breath/weakness)/?</label>
+    <input type="text" name="heartproblem" class="form-control" id="exampleFormControlInput51"  placeholder="If yes please mention the list of medicines you take....">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput53">2) Are you on any regular Medication?</label>
+    <input type="text" name="medication" class="form-control" id="exampleFormControlInput53"  placeholder="If yes please mention the list of medicines you take....">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput52">3) Do you have any history of hospitalization?</label>
+    <input type="text" name="hospitalization" class="form-control" id="exampleFormControlInput52"  placeholder="If yes please mention reason....">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput54">4) Do you have any history of surgery?</label>
+    <input type="text" name="surgery" class="form-control" id="exampleFormControlInput54"  placeholder="If yes please type....">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput591">5) Are you allergic to any Medication?</label>
+    <input type="text" name="allergic" class="form-control" id="exampleFormControlInput591"  placeholder="If yes please specify....">
+  </div>
+
+
+
+    <h3>FAMILY HISTORY</h3>
+  <p> Does any of your family members have history of any of the following conditions?.</p>
+
+  <input type="checkbox" id="vehicle1" name="hypertension" value="Selected">
+  <label for="vehicle1">HYPERTENSION(BP)</label><br>
+  <input type="checkbox" id="vehicle2" name="diabetes" value="selected">
+  <label for="vehicle2">Diabetes(sugar)</label><br>
+  <input type="checkbox" id="vehicle3" name="thyroid" value="selected">
+  <label for="vehicle3"> Thyroid</label><br>
+  <input type="checkbox" id="vehicle4" name="anginapectoris" value="selected">
+  <label for="vehicle4">Anginapectoris</label><br>
+  <input type="checkbox" id="vehicle5" name="congesticcardiacfailure" value="selected">
+  <label for="vehicle5">Congestic Cardiac Failure(Heart failure, weakness, shortness of breath)</label><br><br>
+  <!-- <input type="submit" value="Submit"> -->
+
+
+
+  <h3>SOCIAL HISTORY</h3>
+  <p>In last seven days how often did you exercise at least 20 minutes a day?</p>
+
+  <input type="checkbox" id="vehicle6" name="everyday" value="selected">
+  <label for="vehicle6">Everyday</label><br>
+  <input type="checkbox" id="vehicle7" name="threetosixdays" value="selected">
+  <label for="vehicle7">3-6 days</label><br>
+  <input type="checkbox" id="vehicle8" name="onetotwodays" value="selected">
+  <label for="vehicle8"> 1-2 days</label><br>
+  <input type="checkbox" id="vehicle9" name="never" value="selected">
+  <label for="vehicle9">Never</label><br><br>
+
+
+<p>In last seven days how often did you eat 3 or more servings of fruits or vegetables in a day?</p>
+<p>FRUITS</p>
+  <input type="checkbox" id="vehicle10" name="everyday1" value="selected">
+  <label for="vehicle10">Everyday</label><br>
+  <input type="checkbox" id="vehicle11" name="threetosixdays1" value="selected">
+  <label for="vehicle11">3-6 days</label><br>
+  <input type="checkbox" id="vehicle12" name="onetotwodays1" value="selected">
+  <label for="vehicle12"> 1-2 days</label><br>
+  <input type="checkbox" id="vehicle13" name="never1" value="selected">
+  <label for="vehicle13">Never</label><br><br>
+
+
+<p>VEGETABLES</p>
+  <input type="checkbox" id="vehicle14" name="everyday2" value="selected">
+  <label for="vehicle14">Everyday</label><br>
+  <input type="checkbox" id="vehicle15" name="threetosixdays2" value="selected">
+  <label for="vehicle15">3-6 days</label><br>
+  <input type="checkbox" id="vehicle16" name="onetotwodays2" value="selected">
+  <label for="vehicle16"> 1-2 days</label><br>
+  <input type="checkbox" id="vehicle17" name="never2" value="selected">
+  <label for="vehicle17">Never</label><br><br>
+
+
+<p>In last seven days how often did you consume alcohol?</p>
+
+  <input type="checkbox" id="vehicle104" name="daily" value="selected">
+  <label for="vehicle104">Daily</label><br>
+  <input type="checkbox" id="vehicle105" name="twotothreetimes" value="selected">
+  <label for="vehicle105">2-3 times</label><br>
+  <input type="checkbox" id="vehicle106" name="once" value="selected">
+  <label for="vehicle106">Once</label><br>
+  <input type="checkbox" id="vehicle107" name="never3" value="selected">
+  <label for="vehicle107">Never</label><br><br>
+
+<div class="form-group">
+    <label for="exampleFormControlInput526">In last 30 days, have you someked or used tobocco? (YES OR NO)</label>
+    <input type="text" name="tobacco" class="form-control" id="exampleFormControlInput526"  placeholder="If yes, what is the type and approximately how many times in a day?">
+  </div>
+
+
+<p>In last 30 days, have you felt angry,anxious or depressed?</p>
+
+  <input type="checkbox" id="vehicle18" name="almosteveryday" value="selected">
+  <label for="vehicle18">Almost Every Day</label><br>
+  <input type="checkbox" id="vehicle19" name="sometimes" value="selected">
+  <label for="vehicle19">Sometimes</label><br>
+  <input type="checkbox" id="vehicle20" name="rarely" value="selected">
+  <label for="vehicle19">Rarely</label><br>
+  <input type="checkbox" id="vehicle21" name="never4" value="selected">
+  <label for="vehicle20">Never</label><br><br>
+
+
+
+    
+<!--    <button onclick="myFunction()" type="submit" class="btn btn-success my-3">Submit</button>-->
+        <!-- <button onclick="myFunction()" type="submit" class="btn btn-success my-3" name="button">Submit</button> -->
+        
+        <input type="submit" class="btn btn-success my-3" value="Submit" name="button">
+</form>
+<!--<script type="text/javascript">-->
+ <!-- function myFunction(){
+   localStorage.clear();
+   
+ } -->
+<!--</script>-->
+<script>
+// $(document).ready(function(){
+//   $("form").submit(function(){
+//     localStorage.clear();
+//   });
+// });
+//   window.onbeforeunload = function() {
+//     localStorage.setItem("name", $('#exampleFormControlInput2').val());
+//     localStorage.setItem("age", $('#exampleFormControlInput7').val());
+//     localStorage.setItem("phone", $('#exampleFormControlInput1').val());
+//     localStorage.setItem("gender", $('#exampleFormControlInput1000').val());
+//     localStorage.setItem("height", $('#exampleFormControlInput3').val());
+//     localStorage.setItem("weight", $('#exampleFormControlInput4').val());
+//     localStorage.setItem("address", $('#exampleFormControlTextarea6').val());
+//     localStorage.setItem("diagnosis", $('#exampleFormControlInput5').val());
+//     localStorage.setItem("heartproblem", $('#exampleFormControlInput51').val());
+//     localStorage.setItem("medication", $('#exampleFormControlInput53').val());
+//     localStorage.setItem("hospitalization", $('#exampleFormControlInput52').val());
+//     localStorage.setItem("surgery", $('#exampleFormControlInput54').val());
+//     localStorage.setItem("allergic", $('#exampleFormControlInput591').val());
+//     localStorage.setItem("hypertension", $('#vehicle1').val());
+//     localStorage.setItem("diabetes", $('#vehicle2').val());
+//     localStorage.setItem("thyroid", $('#vehicle3').val());
+//     localStorage.setItem("anginapectoris", $('#vehicle4').val());
+//     localStorage.setItem("congesticcardiacfailure", $('#vehicle5').val());
+//     localStorage.setItem("everyday", $('#vehicle6').val());
+//     localStorage.setItem("threetosixdays", $('#vehicle7').val());
+//     localStorage.setItem("onetotwodays", $('#vehicle8').val());
+//     localStorage.setItem("never", $('#vehicle9').val());
+//     localStorage.setItem("everyday1", $('#vehicle10').val());
+//     localStorage.setItem("threetosixdays1", $('#vehicle11').val());
+//     localStorage.setItem("onettotwodays1", $('#vehicle12').val());
+//     localStorage.setItem("never1", $('#vehicle13').val());
+//     localStorage.setItem("everyday2", $('#vehicle14').val());
+//     localStorage.setItem("threetosixdays2", $('#vehicle15').val());
+//     localStorage.setItem("onetotwodays2", $('#vehicle16').val());
+//     localStorage.setItem("never2", $('#vehicle17').val());
+//     localStorage.setItem("daily", $('#vehicle104').val());
+//     localStorage.setItem("twotothreetimes", $('#vehicle105').val());
+//     localStorage.setItem("once", $('#vehicle106').val());
+//     localStorage.setItem("never3", $('#vehicle107').val());
+//     localStorage.setItem("almosteveryday", $('#vehicle18').val());
+//     localStorage.setItem("sometimes", $('#vehicle19').val());
+//     localStorage.setItem("rarely", $('#vehicle20').val());
+//     localStorage.setItem("never4", $('#vehicle21').val());
+    
+// }
+
+// window.onload = function() {
+
+// var name = localStorage.getItem("name");
+// var age = localStorage.getItem("age");
+// var phone= localStorage.getItem("phone");
+// var gender= localStorage.getItem("gender");
+// var height= localStorage.getItem("height");
+// var weight= localStorage.getItem("weight");
+// var address= localStorage.getItem("address");
+// var diagnosis= localStorage.getItem("diagnosis");
+// var heartproblem= localStorage.getItem("heartproblem");
+// var medication= localStorage.getItem("medication");
+// var hospitilization = localStorage.getItem("hospitalization");
+// var surgery= localStorage.getItem("surgery");
+// var allergic = localStorage.getItem("allergic");
+// var hypertension=localStorage.getItem("hypertension");
+// var thyroid = localStorage.getItem("thyroid");
+// var anginapectoris = localStorage.getItem("anginapectoris");
+// var congesticcardiacfailre=localStorage.getItem("congesticcardiacfailure");
+// var everyday = localStorage.getItem("everyday");
+// var threetosixdays = localStorage.getItem("threetosixdays");
+// var onetotwodays = localStorage.getItem("onetotwodays");
+// var never=localStorage.getItem("never")
+// var everyday1= localStorage.getItem("everyday1");
+// var threetosixdays1=localStorage.getItem("threetosixdays1");
+// var onetotwodays1=localStorage.getItem("onettotwodays1");
+// var never1=localStorage.getItem("never1");
+// var everyday2= localStorage.getItem("everyday2");
+// var threetosixdays2=localStorage.getItem("threetosixdays2");
+// var onetotwodays2= localStorage.getItem("onetotwodays2");
+// var never2= localStorage.getItem("never2");
+// var daily=localStorage.getItem("daily");
+// var twotothreetimes=localStorage.getItem("twotothreetimes");
+// var once=localStorage.getItem("once");
+// var never3=localStorage.getItem("never3");
+// var almosteveryday=localStorage.getItem("almosteveryday");
+// var sometimes=localStorage.getItem("sometimes");
+// var rarely=localStorage.getItem("rarely");
+// var never4=localStorage.getItem("never4");
+// if (name !== null) $('#exampleFormControlInput2').val(name);
+// if (name !== null) $('#exampleFormControlInput7').val(age);
+// if (name !== null) $('#exampleFormControlInput1').val(phone);
+// if (name !== null) $('#exampleFormControlInput1000').val(gender);
+// if (name !== null) $('#exampleFormControlInput3').val(height);
+// if (name !== null) $('#exampleFormControlInput4').val(weight);
+// if (name !== null) $('#exampleFormControlTextarea6').val(address);
+// if (name !== null) $('#exampleFormControlInput51').val(diagnosis);
+// if (name !== null) $('#exampleFormControlInput53').val(heartproblem);
+// if (name !== null) $('#exampleFormControlInput52').val(medication);
+
+// if (name !== null) $('#exampleFormControlInput54').val(hospitilization);
+// if (name !== null) $('#exampleFormControlInput591').val(surgery);
+// if (name !== null) $('#vehicle1').val(allergic);
+// if (name !== null) $('#vehicle2').val(hypertension);
+// if (name !== null) $('#vehicle3').val(thyroid);
+
+// if (name !== null) $('#vehicle4').val(anginapectoris);
+// if (name !== null) $('#vehicle5').val(congesticcardiacfailre);
+// if (name !== null) $('#vehicle6').val(everyday);
+// if (name !== null) $('#vehicle7').val(threetosixdays);
+// if (name !== null) $('#vehicle8').val(onetotwodays);
+
+// if (name !== null) $('#vehicle9').val(never);
+// if (name !== null) $('#vehicle10').val(everyday1);
+// if (name !== null) $('#vehicle11').val(threetosixdays1);
+// if (name !== null) $('#vehicle12').val(onetotwodays1);
+// if (name !== null) $('#vehicle13').val(never1);
+
+// if (name !== null) $('#vehicle14').val(everyday2);
+// if (name !== null) $('#vehicle15').val(threetosixdays2);
+// if (name !== null) $('#vehicle16').val(onetotwodays2);
+// if (name !== null) $('#vehicle17').val(never2);
+
+// if (name !== null) $('#vehicle104').val(daily);
+// if (name !== null) $('#vehicle105').val(twotothreetimes);
+// if (name !== null) $('#vehicle106').val(once);
+// if (name !== null) $('#vehicle107').val(never3);
+
+// if (name !== null) $('#vehicle18').val(almosteveryday);
+// if (name !== null) $('#vehicle19').val(sometimes);
+// if (name !== null) $('#vehicle20').val(rarely);
+// if (name !== null) $('#vehicle21').val(never4);
+
+
+
+// }
+  {% if thank %}
+  alert("Your details have been submitted and your patinet _id is {{id}}. Use it");
+{%endif%}
+</script>
+
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Title</title>
+    <style>
+
+        body {
+            font-family: 'Oswald', sans-serif;
+background-image: url("https://cdn2.slidemodel.com/wp-content/uploads/7243-01-low-poly-background-16x9-1.jpg");
+        }
+
+.jumbotron {
+    background-color:transparent !important;
+}
+        .wrapper {
+    text-align: center;
+}
+        #removeit{
+        float: right;
+        }
+        .did{
+ text-align: center;
+        }
+        .ml10 {
+  position: relative;
+  font-weight: 900;
+  font-size: 4em;
+}
+
+.ml10 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.ml10 .letter {
+  display: inline-block;
+  line-height: 1em;
+  transform-origin: 0 0;
+}
+
+
+
+
+
+    </style>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark my-0 ">
+  <a class="navbar-brand" href="#">Enter your id so as to get your details.</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <form class="form-inline my-2 my-lg-0" method="post" action="/exip">
+      {%csrf_token%}
+      <input class="form-control mr-sm-2" type="search" maxlength="10" placeholder="Your id number" name="search" aria-label="Search">
+      <button class="btn btn-outline-success my-2  my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+
+
+
+<div class="jumbotron my-0">
+
+<!--  <h1 class="display-4"><b> </b></h1>-->
+
+
+
+<h1 class="ml10">
+  <span class="text-wrapper">
+    <span class="letters">EECP PATEINT DATA COLLECTION</span>
+      <p class="lead">EECP STANDS FOR EXTERNAL COUNTER PULSATION.</p>
+  </span>
+</h1>
+ <a class="btn btn-warning btn-lg mx-4" id="removeit" href="/">BACK</a>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<!--  <p class="lead">EECP STANDS FOR EXTERNAL COUNTER PULSATION.</p>-->
+    <a class="btn btn-primary btn-lg" id="removeit" href="/logout">Log Out</a>
+    <div class="did"> <b >DATE:</b> {% now "jS \o\f F" %}</div>
+
+
+  <hr class="my-4">
+  
+  <div class="wrapper">
+<p>Welcome! Please select the option according to your requirement.</p>
+<a class="btn btn-danger btn-lg mx-4"  href="exipu" role="button">BEFORE</a>
+      <a class="btn btn-warning btn-lg mx-4" href="live" role="button">TREATEMENT</a>
+      <a class="btn btn-primary btn-lg mx-4"  href="after" role="button">AFTER</a>
+      </div>
+</div>
+<div class="container">
+<ul class="list-group mb-3" id="items">
+  
+</ul></div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script>
+var textWrapper = document.querySelector('.ml10 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml10 .letter',
+    rotateY: [-90, 0],
+    duration: 1300,
+    delay: (el, i) => 45 * i
+  }).add({
+    targets: '.ml10',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+ // values of listit with yourid=2
+ //     [{'yourid': 2, 'name': 'h', 'age': '6', 'phone': '6', 'gender': 'M', 'height': '6', 'weight': '6', 'diagnosis': '6',
+ //       'address': '6', 'medicalhistory': '6', 'date': datetime.date
+ //         (2020, 8, 27)}] >
+
+// for(item in listitvalue){
+// listit=Newpatient.objects.filter(yourid={{search}}).values();
+// your_id = listitvalue['yourid']
+// name = listitvalue['name']
+// phone=listitvalue['phone']
+// gender=listitvalue['gender']
+// height=listitvalue['height']
+// weight=listitvalue['weight']
+// diagnosis=listitvalue['diagnosis']
+// address=listitvalue['address']
+// medicalhistory=listitvalue['medicalhistory']
+// var medicalhistory='{{medicccccccccalhistory}}';
+
+
+// listitvalue={{listit}}
+// console.log(listitvalue);
+if('{{OK}}'=="okay"){
+  alert("Please Enter Corret id number");
+}
+else{
+  //var your_id={{yourid}};
+  var name='{{name}}';
+  var age='{{age}}'
+  var phone='{{phone}}';
+  var gender='{{gender}}';
+  var height='{{height}}';
+  var weight='{{weight}}';
+  var diagnosis='{{diagnosis}}';
+  var address='{{address}}';
+  var heartproblem='{{heartproblem}}';
+  var medication='{{medication}}';
+  var hospitalization='{{hospitalization}}';
+  var surgery='{{surgery}}';
+  var allergic='{{allergic}}';
+  var hypertension='{{hypertension}}';
+  var diabetes='{{diabetes}}';
+  var thyroid='{{thyroid}}';
+  var anginapectoris='{{anginapectoris}}';
+  var congesticcardiacfailure='{{congesticcardiacfailure}}';
+  var everyday='{{everyday}}';
+  var threetosixdays='{{threetosixdays}}';
+  var onetotwodays='{{onetotwodays}}';
+  var never='{{never}}';
+  var everyday1='{{everyday1}}';
+  var threetosixdays1='{{threetosixdays1}}';
+  var onetotwodays1='{{onetotwodays1}}';
+  var never1='{{never1}}';
+  var everyday2='{{everyday2}}';
+  var threetosixdays2='{{threetosixdays2}}';
+  var onetotwodays2='{{onetotwodays2}}';
+  var never2='{{never2}}';
+  var daily='{{daily}}';
+  var twotothreetimes='{{twotothreetimes}}';
+  var once='{{once}}';
+  var never3='{{never3}}';
+  var tobacco='{{tobacco}}';
+  var almosteveryday='{{almosteveryday}}';
+  var sometimes='{{sometimes}}';
+  var rarely='{{rarely}}';
+  var never4='{{never4}}';
+
+
+// <!--{your_id}-->
+// <li class="list-group-item d-flex justify-content-between align-items-center">
+//       Your id
+//       <span class="badge badge-primary badge-pill">${"LIVO"+your_id.toString()}</span>
+//     </li>
+  mystr=`
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Name
+      <span class="badge badge-primary badge-pill">${name}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Age
+      <span class="badge badge-primary badge-pill">${age}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Phone
+      <span class="badge badge-primary badge-pill">${phone}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Gender
+      <span class="badge badge-primary badge-pill">${gender}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Height
+      <span class="badge badge-primary badge-pill">${height}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      weight
+      <span class="badge badge-primary badge-pill">${weight}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      diagnosis
+      <span class="badge badge-primary badge-pill">${diagnosis}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Address
+      <span class="badge badge-primary badge-pill">${address}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      MEDICAL HISTORY    
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Did you experience any heart related problems such as anginapectoris(chest pain)/Heart failure(shortness of breath)/weakness?
+      
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+    List of medicines:
+      <span class="badge badge-primary badge-pill">${heartproblem}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Are you on any regular medication?
+      
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      List of medicines
+      <span class="badge badge-primary badge-pill">${medication}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+    Do you have any history of hospitalization?
+      
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Reason
+      <span class="badge badge-primary badge-pill">${hospitalization}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Do you have any history of surgery?
+      <span class="badge badge-primary badge-pill">${surgery}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Are you allergic to any medication?
+      <span class="badge badge-primary badge-pill">${allergic}</span>
+    </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+      FAMILY HISTORY
+    </li>
+
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+    Does your family members have any history of any of the following conditions?
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      1)Hypertension
+      <span class="badge badge-primary badge-pill">${hypertension}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      2)Diabetes
+      <span class="badge badge-primary badge-pill">${diabetes}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      3)Thyroid
+      <span class="badge badge-primary badge-pill">${thyroid}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      4)Anginapectoris
+      <span class="badge badge-primary badge-pill">${anginapectoris}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      5)Congestic cardiac failure(heart failure, weakness, shortness of breath)
+      <span class="badge badge-primary badge-pill">${congesticcardiacfailure}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      SOCIAL HISORY
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      In last seven days, how often did you exercise for at least 20 minutes in a day?
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      1)Everyday
+      <span class="badge badge-primary badge-pill">${everyday}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      2)3-6 days
+      <span class="badge badge-primary badge-pill">${threetosixdays}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      3)1-2-days
+      <span class="badge badge-primary badge-pill">${onetotwodays}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      4)Never
+      <span class="badge badge-primary badge-pill">${never}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      In last seven days how often did you eat 3 or more serving of fruits or vegetables in a day? 
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      FRUITS.
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      1)Everyday
+      <span class="badge badge-primary badge-pill">${everyday1}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      2)3-6-days
+      <span class="badge badge-primary badge-pill">${threetosixdays1}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      3)1-2-days
+      <span class="badge badge-primary badge-pill">${onetotwodays1}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      4)Never
+      <span class="badge badge-primary badge-pill">${never1}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      VEGETABLES
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+    1)Everyday
+      <span class="badge badge-primary badge-pill">${everyday2}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      2)3-6-days
+      <span class="badge badge-primary badge-pill">${threetosixdays2}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+    3)1-2-days
+      <span class="badge badge-primary badge-pill">${onetotwodays2}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      4)Never
+      <span class="badge badge-primary badge-pill">${never2}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      In the last seven days how often did you consume alcohol?
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      1)Daily
+      <span class="badge badge-primary badge-pill">${daily}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      2)2-3-times
+      <span class="badge badge-primary badge-pill">${twotothreetimes}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      3)Once
+      <span class="badge badge-primary badge-pill">${once}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      4)Never
+      <span class="badge badge-primary badge-pill">${never3}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      In last 30 days,have you smoked or used tobacco or any other substance?
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Type of tobacco you are consuming and number of times you are consuming in a day.
+      <span class="badge badge-primary badge-pill">${tobacco}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      In last 30 days how often you felt angry,anxious or depressed?
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      1)Almost everyday
+      <span class="badge badge-primary badge-pill">${almosteveryday}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      2)Sometimes
+      <span class="badge badge-primary badge-pill">${sometimes}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      3)Rarely
+      <span class="badge badge-primary badge-pill">${rarely}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      4)Never
+      <span class="badge badge-primary badge-pill">${never4}</span>
+    </li>`
+
+
+  $('#items').append(mystr);
+
+}
+
+
+</script>
+
+</body>
+</html>
