@@ -2,6 +2,7 @@ from django.db import models
 import datetime
 # Create your models here.
 class Newpatient(models.Model):
+    dfokgkdfnkdfnbjknfgbnfgbionfgiobnfgibnegjikik
     yourid=models.AutoField(primary_key=True)
     name= models.CharField(max_length=122)
     age=models.CharField(max_length=3)
